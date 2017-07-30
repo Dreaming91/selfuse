@@ -1,3 +1,7 @@
+
+import android.graphics.Color;
+import java.util.Random;
+
 public class ColorUtil {
     public static int randomColor() {
         int red = new Random().nextInt(200);
