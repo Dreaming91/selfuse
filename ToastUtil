@@ -1,0 +1,26 @@
+package com.hy.demo.utils;
+
+import android.widget.Toast;
+
+
+public class ToastUtil {
+	private static Toast toast;
+	/**
+	 * 自诩为强大的吐司，能够连续弹的吐司（笑）
+	 * @param text
+	 */
+	public static void showToast(final String text){
+		Utils.runOnUIThread(new Runnable() {
+			@Override
+			public void run() {
+				if(toast==null){
+					toast = Toast.makeText("此处需要全局上下文，可能会造成oom", text,Toast.LENGTH_SHORT);
+				}else {
+					toast.setText(text);//如果不为空，则直接改变当前toast的文本
+				}
+				toast.show();
+			}
+		});
+
+	}
+}
